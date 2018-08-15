@@ -50,8 +50,22 @@ def fib(n):
     return pow(2 << n, n + 1, (4 << 2 * n) - (2 << n) - 1) % (2 << n)
 
 
-def digits(number):
-    return map(int, str(number))
+def digits(number, gen=True):
+    res = map(int, str(number))
+    if gen:
+        return res
+    return tuple(res)
+
+
+def factorial(number):
+    if number < 0:
+        raise ValueError('number {} is less than zero'.format(number))
+    if not isinstance(number, int):
+        raise TypeError('number has type {} not int'.format(type(number)))
+    res = 1
+    for i in range(2, number + 1):
+        res *= i
+    return res
 
 
 def main():

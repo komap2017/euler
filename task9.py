@@ -4,6 +4,8 @@ import seq as s
 
 
 def is_pif(a, b, c):
+    if any(el <= 0 for el in [a, b, c]):
+        return False
     return a ** 2 + b ** 2 == c ** 2
 
 
@@ -19,7 +21,6 @@ def main():
         if is_pif(*el):
             res.append(el)
     print(res)
-    print(res == [95, 0, 96])
 
 
 if __name__ == '__main__':
